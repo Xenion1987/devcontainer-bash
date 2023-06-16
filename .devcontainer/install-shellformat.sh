@@ -40,9 +40,8 @@ function install_shellformat {
     ;;
   esac
   DOWNLOAD_FILENAME="shfmt_${SHELLFORMAT_VERSION,,}_${KERNEL_NAME,,}_${SHELLFORMAT_ARCHITECTURE,,}"
-  if curl -sL \
-    "https://github.com/${GH_ORG}/${GH_REPO}/releases/download/${SHELLFORMAT_VERSION}/${DOWNLOAD_FILENAME}" \
-    -o "/home/${USER_NAME}/.local/bin/shfmt"; then
+  DOWNLOAD_URL="https://github.com/${GH_ORG}/${GH_REPO}/releases/download/${SHELLFORMAT_VERSION}/${DOWNLOAD_FILENAME}"
+  if curl -sL "${DOWNLOAD_URL}" -o "/home/${USER_NAME}/.local/bin/shfmt"; then
     chmod +x "/home/${USER_NAME}/.local/bin/shfmt"
     if shfmt --version &>/dev/null; then
       echo "Installed '${DOWNLOAD_FILENAME}' to '/home/${USER_NAME}/.local/bin/shfmt'"
@@ -50,7 +49,7 @@ function install_shellformat {
   fi
 }
 function main() {
-  if type -p shfmt &>/dev/null; then
+  if shfmt --version &>/dev/null; then
     exit 0
   fi
   echo "Installing 'shellformat'..."
