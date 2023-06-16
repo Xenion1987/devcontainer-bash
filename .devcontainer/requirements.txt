@@ -1,0 +1,5 @@
+pip
+pylint
+black
+black[jupyter]
+pre-commit

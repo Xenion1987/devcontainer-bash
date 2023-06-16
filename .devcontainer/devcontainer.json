@@ -1,0 +1,49 @@
+{
+	"name": "Python 3",
+	"image": "mcr.microsoft.com/devcontainers/python:0-3.11",
+	"runArgs": [
+		"--name=dev-py3",
+		"--hostname=dev-py3"
+	],
+	"initializeCommand": "bash ./.devcontainer/initialize-command.sh",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"telemetry.telemetryLevel": "off",
+				"files.eol": "\n",
+				"files.insertFinalNewline": true,
+				"files.autoSave": "off",
+				"editor.formatOnSave": true,
+				"git.autorefresh": true,
+				"git.autofetch": true,
+				"git.autofetchPeriod": 90,
+				"git.pullTags": false,
+				"git.confirmSync": false,
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.provider": "black"
+			},
+			"extensions": [
+				"sleistner.vscode-fileutils",
+				"ms-python.python",
+				"ms-python.pylint",
+				"ms-toolsai.jupyter"
+			]
+		}
+	},
+	"onCreateCommand": "bash ./.devcontainer/on-create-command.sh",
+	"mounts": [
+		{
+			"source": "devcontainer-history",
+			"target": "/home/vscode/.history_export",
+			"type": "volume"
+		}
+		// OPTIONAL: Mount your local workspace directory into the devcontainer
+		// {
+		// 	"source": "${localEnv:HOME}${localEnv:USERPROFILE}/workspace",
+		// 	"target": "/home/vscode/workspace",
+		// 	"type": "bind"
+		// }
+	],
+	"postCreateCommand": "bash ./.devcontainer/post-create-command.sh"
+}
