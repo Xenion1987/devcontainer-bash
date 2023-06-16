@@ -2,8 +2,8 @@
 	"name": "Python 3",
 	"image": "mcr.microsoft.com/devcontainers/python:0-3.11",
 	"runArgs": [
-		"--name=dev-py3",
-		"--hostname=dev-py3"
+		"--name=dev-bash",
+		"--hostname=dev-bash"
 	],
 	"initializeCommand": "bash ./.devcontainer/initialize-command.sh",
 	"customizations": {
@@ -19,15 +19,19 @@
 				"git.autofetchPeriod": 90,
 				"git.pullTags": false,
 				"git.confirmSync": false,
-				"python.linting.enabled": true,
-				"python.linting.pylintEnabled": true,
-				"python.formatting.provider": "black"
+				"shellformat.path": "/home/vscode/.local/bin/shfmt",
+				"shellformat.flag": "-i 2",
+				"[shellscript]": {
+					"editor.indentSize": 2,
+					"editor.tabSize": 2
+				},
+				"bashIde.shellcheckPath": "/home/vscode/.local/bin/shellcheck"
 			},
 			"extensions": [
 				"sleistner.vscode-fileutils",
-				"ms-python.python",
-				"ms-python.pylint",
-				"ms-toolsai.jupyter"
+				"rogalmic.bash-debug",
+				"mads-hartmann.bash-ide-vscode",
+				"foxundermoon.shell-format"
 			]
 		}
 	},

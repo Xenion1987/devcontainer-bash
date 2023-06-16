@@ -1,0 +1,11 @@
+#####################################
+#           .shellcheckrc           #
+#####################################
+# Add disable directives here to disable
+# them project wide.
+#
+# Check's documentation can be found here:
+# https://www.shellcheck.net/wiki/<SHELLCHECK_ID>
+#
+# Example:
+# disable=SC2086 # (info): Double quote to prevent globbing and word splitting.

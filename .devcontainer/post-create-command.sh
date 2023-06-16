@@ -17,10 +17,8 @@ function create_code_workspace() {
   for WORKSPACE_LOCATION in "${WORKSPACE_LOCATIONS[@]}"; do
     PROJECTS=$(ls -1 "${WORKSPACE_LOCATION}")
     for PROJECT in ${PROJECTS}; do
-
       MAIN="  { \"path\": \"${WORKSPACE_LOCATION}/${PROJECT}\" },"
       echo -e "${MAIN}" >>"${HOME}/dev.code-workspace"
-
     done
   done
 
@@ -32,7 +30,7 @@ function create_code_workspace() {
 function main() {
   install_pip_requirements
   pre_commit
-  
+
   ## OPTIONAL: If you have mounted your local workspace,
   ## this function creates a vscode workspace file for each
   ## directory in your workspace directory

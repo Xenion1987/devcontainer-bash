@@ -13,5 +13,9 @@ sudo touch "${USER_HIST_FILE}"
 sudo chown -R "${USER_NAME}" "${USER_HIST_PATH}"
 
 if ! grep -q "${SNIPPET}" "${USER_HOME}/.bashrc"; then
-    echo "$SNIPPET" >> "${USER_HOME}/.bashrc"
+  echo "$SNIPPET" >>"${USER_HOME}/.bashrc"
+fi
+
+if ! type -p shfmt &>/dev/null; then
+  bash .devcontainer/install-shellformat.sh
 fi
