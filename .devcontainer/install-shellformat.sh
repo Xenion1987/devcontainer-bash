@@ -41,7 +41,8 @@ function install_shellformat {
   esac
   DOWNLOAD_FILENAME="shfmt_${SHELLFORMAT_VERSION,,}_${KERNEL_NAME,,}_${SHELLFORMAT_ARCHITECTURE,,}"
   DOWNLOAD_URL="https://github.com/${GH_ORG}/${GH_REPO}/releases/download/${SHELLFORMAT_VERSION}/${DOWNLOAD_FILENAME}"
-  if curl -sL "${DOWNLOAD_URL}" -o "/home/${USER_NAME}/.local/bin/shfmt"; then
+  mkdir -p "/home/${USER_NAME}/.local/bin"
+  if curl -L "${DOWNLOAD_URL}" -o "/home/${USER_NAME}/.local/bin/shfmt"; then
     chmod +x "/home/${USER_NAME}/.local/bin/shfmt"
     if shfmt --version &>/dev/null; then
       echo "Installed '${DOWNLOAD_FILENAME}' to '/home/${USER_NAME}/.local/bin/shfmt'"
