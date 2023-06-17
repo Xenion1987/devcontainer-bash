@@ -37,6 +37,7 @@ function install_shellformat {
     ;;
   *)
     echo "Unknown architecture: ${ARCHITECTURE}"
+    exit 1
     ;;
   esac
   DOWNLOAD_FILENAME="shfmt_${SHELLFORMAT_VERSION,,}_${KERNEL_NAME,,}_${SHELLFORMAT_ARCHITECTURE,,}"
